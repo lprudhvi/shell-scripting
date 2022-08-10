@@ -1,0 +1,6 @@
+hello, 
+welcome to pru's world
+grep is used to search pattern in files
+unix
+Unix
+uNix

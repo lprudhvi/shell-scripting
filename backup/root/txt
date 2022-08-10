@@ -1,0 +1,89 @@
+    1  aws --version
+    2  curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -LO  https://github.com/kubernetes/kops/releases/download/1.15.0/kops-linux-amd64)
+    3  ls
+    4   chmod +x kops-linux-amd64
+    5  sudo mv kops-linux-amd64 /usr/local/sbin/kops
+    6  aws s3 mb s3://clusters.dev.sai.in
+    7   export KOPS_STATE_STORE=s3://clusters.dev.sai.in
+    8  curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    9  chmod +x ./kubectl
+   10  sudo mv ./kubectl /usr/local/sbin/kubectl
+   11  ssh-keygen
+   12  yum install docker -y
+   13  vi /etc/profile
+   14  kops create cluster --zones=us-east-1b clusters.dev.sai.in --dns-zone=sai.in --dns private
+   15  kops edit ig --name=clusters.dev.sai.in nodes
+   16  kops edit ig --name=clusters.dev.sai.in master-us-east-1b
+   17  kops update cluster --name clusters.dev.sai.in --yes
+   18  kops validate cluster
+   19  kubectl get nodes
+   20  kubectl create deployment dep1 --image=httpd
+   21  kubectl get deployment -o wide
+   22  kubectl get pods
+   23  kubectl scale deployment dep1 --replicas=2
+   24  kubectl get pods
+   25  kubectl get pods -o wide
+   26  kubectl get nodes
+   27  kops edit ig --name=clusters.dev.sai.in nodes
+   28  kubectl get nodes
+   29  kubectl expose deployment dep1 --type=LoadBalancer
+   30  kubectl expose deployment dep1 --type=LoadBalancer --port=80 --target-port=80
+   31  kubectl get service
+   32  kubectl describe service dep1
+   33  kubectl get nodes
+   34  kubectl get namespaces
+   35  kubectl create namespace dev
+   36  kubectl create namespace test
+   37  kubectl get namespaces
+   38   kubectl config current-context  
+   39  kubectl config set-context clusters.dev.sai.in  --namespace dev
+   40  kubectl config view --minify | grep namespace:
+   41  kubectl get deployments
+   42  kubectl config set-context clusters.dev.sai.in  --namespace default
+   43  kubectl get deployments
+   44  exit
+   45  kubectl get deployments
+   46  kubectl get deployments --namespace=dev
+   47  kubectl get deployments --all-namespaces
+   48  kubectl delete deployments
+   49  kubectl delete deployments --namespace=default
+   50  kubectl delete deployments dev1
+   51  history
+   52  kubectl delete deployments dep1
+   53  history
+   54  vi pv.yml
+   55  vi vpc.yml
+   56  vi pod-vpc.yml
+   57  kubectl apply -f pv.yml 
+   58  kubectl get pv
+   59  kubectl apply -f vpc.yml 
+   60  kubectl get vpc
+   61  kubectl get pvc
+   62  kubectl apply -f pod-vpc.yml 
+   63  kubectl get pods
+   64  kubectl get pods -o wide
+   65  vi statefulset.yml
+   66  kubectl get vpc
+   67  vi vpc.yml
+   68  kubectl apply -f vpc.yml 
+   69  kubectl apply -f statefulset.yml 
+   70  vi statefulset.yml
+   71  rm statefulset.yml 
+   72  vi statefulset.yml
+   73  vi service.yml
+   74  vi statefulset.yml 
+   75  kubectl apply -f vpc.yml 
+   76  kubectl apply -f statefulset.yml 
+   77  kubectl apply -f service.yml 
+   78  kubectl apply -f statefulset.yml 
+   79  vi statefulset.yml 
+   80  kubectl get all
+   81  vi volume.yml
+   82  kubectl apply -f volume.yml 
+   83  kubectl get pods
+   84  kubectl get all
+   85  kubectl delete service --all
+   86  kubectl delete pods all
+   87  kubectl delete pods --all
+   88  kops delete cluster  --yes
+   89  history > txt

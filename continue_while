@@ -1,0 +1,12 @@
+echo Enter value for n:
+read n
+i=0
+while [ $i -lt $n ]
+do
+i=$(expr $i + 1)
+if [ $i -eq 4 ]
+then 
+continue
+fi
+echo $i
+done

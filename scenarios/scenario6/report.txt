@@ -1,0 +1,9 @@
+in project1, <artifactId>junit</artifactId> is not found
+in project2, <artifactId>junit</artifactId> is not found
+in project3, <artifactId>junit</artifactId> is not found
+in project1, <artifactId>junit</artifactId> deleted
+in project2, <artifactId>junit</artifactId> is not found
+in project3, <artifactId>junit</artifactId> is not found
+in project1, <scope>compile</scope> deleted
+in project2, <scope>compile</scope> is not found
+in project3, <scope>compile</scope> deleted

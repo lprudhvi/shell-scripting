@@ -1,0 +1,13 @@
+echo Enter value for a:
+read a
+echo Enter calue for b:
+read b
+if [ $a -eq $b ]
+then
+echo $a and  $b are Equal
+elif [ $a -gt $b ]
+then
+echo $a is Greater than $b
+else
+echo $b is greater than $a
+fi

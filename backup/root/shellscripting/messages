@@ -1,0 +1,2 @@
+Aug  4 16:11:01 ip-172-31-87-209 rsyslogd: [origin software="rsyslogd" swVersion="8.24.0-57.amzn2.2.0.1" x-pid="3048" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
+Aug  4 16:11:10 ip-172-31-87-209 dhclient[2865]: XMT: Solicit on eth0, interval 128670ms.

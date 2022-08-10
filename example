@@ -1,0 +1,10 @@
+echo "filenamen is - ", $0
+echo "number of parameters given", $#
+a=$1
+b=$2
+c=$3
+echo "double quoted parameters ", $*
+res=$(expr $a + $b + $c)
+echo sum= $res
+echo "status ", $?
+

@@ -1,0 +1,11 @@
+echo Enter value of a:
+read a 
+echo Enter value of b:
+read b
+echo Enter $(expr $a + 1) for Addition and $(expr $b + 1) for Subtraction
+read choice
+case $choice in
+$(expr $a + 1)) echo Addition of $a and $b is $(expr $a + $b) ;;
+$(expr $b + 1)) echo Difference between $a and $b is $(expr $a - $b) ;;
+*) echo Enter either 1 or 2
+esac 
